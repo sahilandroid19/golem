@@ -26,10 +26,9 @@ def async_run(deferred_call, success=None, error=None):
     deferred.addErrback(error)
     return deferred
 
-  
 def async_callback(func):
-    def callback(result):
-        return async_run(AsyncRequest(func, result))
+    def callback(results):
+        return async_run(AsyncRequest(func, results))
     return callback
 
 
